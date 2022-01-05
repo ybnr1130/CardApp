@@ -14,6 +14,14 @@ struct ContentView: View {
     @State var japanese = "かばん"
     @State var isJapanese = true
     var body: some View {
+        ZStack {
+            Image("card")
+                .resizable()
+                .frame(width: 300.0, height: 133)
+                .shadow(radius: 3)
+                .rotation3DEffect(.degrees(isJapanese ? 0 : 180),
+                                axis: (x: 0, y: 1, z: 0))
+        }
         VStack {
             Text(isJapanese ? japanese : cards[japanese]!)
             HStack {
