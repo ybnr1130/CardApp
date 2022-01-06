@@ -21,6 +21,10 @@ struct ContentView: View {
                 .shadow(radius: 3)
                 .rotation3DEffect(.degrees(isJapanese ? 0 : 180),
                                 axis: (x: 0, y: 1, z: 0))
+                .animation(.spring())
+                .onTapGesture {
+                    self.isJapanese.toggle()
+                }
         }
         VStack {
             Text(isJapanese ? japanese : cards[japanese]!)
